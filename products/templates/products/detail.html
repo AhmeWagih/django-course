@@ -1,0 +1,25 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} - Marketplace{% endblock %}
+
+{% block content %}
+<section class="py-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <article class="mt-6 bg-white rounded-xl shadow-md overflow-hidden grid grid-cols-1 md:grid-cols-2">
+      <img src="{% static product.image %}" alt="{{ product.name }}" class="w-full h-full object-cover min-h-[300px]">
+
+      <div class="p-8">
+        <h1 class="text-3xl font-bold text-gray-900">{{ product.name }}</h1>
+        <p class="text-blue-700 text-2xl font-bold mt-3">${{ product.price }}</p>
+
+        <div class="mt-6 space-y-3 text-gray-700">
+          <p><span class="font-semibold text-gray-900">Product ID:</span> {{ product.id }}</p>
+          <p><span class="font-semibold text-gray-900">Stock:</span> {{ product.stock }}</p>
+          <p><span class="font-semibold text-gray-900">Description:</span> {{ product.description }}</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Contact Us - Marketplace{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-5xl font-bold mb-4">Contact Us</h1>
+      <p class="text-xl text-green-100">We'd love to hear from you. Get in touch with us today.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
+          <form method="POST" class="space-y-6">
+            {% csrf_token %}
+            <div>
+              <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition">
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+              <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+              <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition duration-200">
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
+          <div class="space-y-8">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white">
+                  📍
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium text-gray-900">Address</h3>
+                <p class="mt-2 text-gray-700">123 Marketplace Avenue<br>Suite 100<br>New York, NY 10001</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white">
+                  ☎️
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium text-gray-900">Phone</h3>
+                <p class="mt-2 text-gray-700">+1 (555) 123-4567</p>
+                <p class="text-gray-700">+1 (555) 987-6543</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white">
+                  ✉️
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                <p class="mt-2 text-gray-700">info@marketplace.com</p>
+                <p class="text-gray-700">support@marketplace.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-green-600 text-white">
+                  🕐
+                </div>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-lg font-medium text-gray-900">Business Hours</h3>
+                <p class="mt-2 text-gray-700">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                <p class="text-gray-700">Saturday - Sunday: 10:00 AM - 4:00 PM EST</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="bg-gray-50 p-6 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+          <summary class="font-semibold text-gray-900 text-lg">How long does it take to get a response?</summary>
+          <p class="mt-4 text-gray-700">We typically respond to all inquiries within 24 hours during business days.</p>
+        </details>
+        <details class="bg-gray-50 p-6 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+          <summary class="font-semibold text-gray-900 text-lg">What are your customer support channels?</summary>
+          <p class="mt-4 text-gray-700">You can reach us via email, phone, or by filling out the contact form above.</p>
+        </details>
+        <details class="bg-gray-50 p-6 rounded-lg cursor-pointer hover:bg-gray-100 transition">
+          <summary class="font-semibold text-gray-900 text-lg">Do you offer technical support?</summary>
+          <p class="mt-4 text-gray-700">Yes, our technical support team is available to help with any platform-related issues.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+{% endblock %}
