@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Category, Product
+from categories.models import Category
+from .models import Product
 
 
 def home(request):
@@ -76,13 +77,4 @@ def delete_product(request, id):
   product = get_object_or_404(Product, pk=id)
   product.delete()
   return redirect('products_index')
-
-
-def category_detail(request, id):
-  category = get_object_or_404(Category, pk=id)
-  products = category.products.all()
-  return render(request, 'products/category_detail.html', {
-    'category': category,
-    'products': products,
-  })
 
