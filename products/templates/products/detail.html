@@ -1,13 +1,11 @@
 {% extends 'products/base.html' %}
-{% load static %}
-
 {% block title %}{{ product.name }} - Marketplace{% endblock %}
 
 {% block content %}
 <section class="py-16">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <article class="mt-6 bg-white rounded-xl shadow-md overflow-hidden grid grid-cols-1 md:grid-cols-2">
-      <img src="{% static product.image %}" alt="{{ product.name }}" class="w-full h-full object-cover min-h-[300px]">
+      <img src="{{ product.image.url }}" alt="{{ product.name }}" class="w-full h-full object-cover min-h-[300px]">
 
       <div class="p-8">
         <h1 class="text-3xl font-bold text-gray-900">{{ product.name }}</h1>
@@ -15,8 +13,19 @@
 
         <div class="mt-6 space-y-3 text-gray-700">
           <p><span class="font-semibold text-gray-900">Product ID:</span> {{ product.id }}</p>
+          <p>
+            <span class="font-semibold text-gray-900">Category:</span>
+            <a href="{% url 'category_detail' product.category.id %}" class="text-blue-600 hover:underline">{{ product.category.name }}</a>
+          </p>
           <p><span class="font-semibold text-gray-900">Stock:</span> {{ product.stock }}</p>
           <p><span class="font-semibold text-gray-900">Description:</span> {{ product.description }}</p>
+          <p><span class="font-semibold text-gray-900">Created At:</span> {{ product.created_at }}</p>
+          <p><span class="font-semibold text-gray-900">Updated At:</span> {{ product.updated_at }}</p>
+        </div>
+
+        <div class="mt-8 flex gap-3">
+          <a href="{% url 'product_update' product.id %}" class="px-5 py-2.5 bg-yellow-500 text-white rounded-lg font-medium hover:bg-yellow-600 transition">Edit</a>
+          <a href="{% url 'product_delete' product.id %}" class="px-5 py-2.5 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition">Delete</a>
         </div>
       </div>
     </article>

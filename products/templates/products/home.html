@@ -72,33 +72,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Popular Categories</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <a href="/products/" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition transform">
-          <div class="bg-red-500 h-40 flex items-center justify-center">
-            <span class="text-6xl">👕</span>
+        {% for category in categories %}
+        <a href="{% url 'category_detail' category.id %}" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition transform">
+          <div class="h-40 overflow-hidden">
+            <img src="{{ category.logo.url }}" alt="{{ category.name }}" class="w-full h-full object-cover">
           </div>
           <div class="p-6">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Clothing</h3>
-            <p class="text-gray-600">Browse our latest fashion collection</p>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2">{{ category.name }}</h3>
+            <p class="text-gray-600">Explore products in {{ category.name }}</p>
           </div>
         </a>
-        <a href="/products/" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition transform">
-          <div class="bg-green-500 h-40 flex items-center justify-center">
-            <span class="text-6xl">📱</span>
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Electronics</h3>
-            <p class="text-gray-600">Latest tech and gadgets</p>
-          </div>
-        </a>
-        <a href="/products/" class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:scale-105 transition transform">
-          <div class="bg-yellow-500 h-40 flex items-center justify-center">
-            <span class="text-6xl">🏠</span>
-          </div>
-          <div class="p-6">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Home & Garden</h3>
-            <p class="text-gray-600">Everything for your home</p>
-          </div>
-        </a>
+        {% empty %}
+        <p class="text-gray-600 col-span-full text-center">No categories available yet.</p>
+        {% endfor %}
       </div>
     </div>
   </section>
