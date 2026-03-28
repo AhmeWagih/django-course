@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'aboutUs.apps.AboutUsConfig',
     'contactUs.apps.ContactUsConfig',
     'django_cleanup.apps.CleanupConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
